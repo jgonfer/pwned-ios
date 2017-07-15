@@ -1,0 +1,25 @@
+platform :ios, '9.0'
+use_frameworks!
+
+abstract_target 'PwnedAbstract' do
+
+    pod 'RxSwift', '~> 3.5'
+    pod 'RxCocoa', '~> 3.5'
+    pod 'RealmSwift', '2.7'
+    pod 'RxRealm', '0.6.0'
+    pod 'Unbox', '2.4.0'
+    pod 'Then', '2.1.0'
+    pod 'Reachability', '3.2.0'
+    pod 'Kingfisher', '3.9.1'
+    pod 'Action', '~> 3.0'
+    pod 'NSObject+Rx', '~> 2.1'
+    pod 'RxRealmDataSources', '0.2.1'
+
+    target 'pwned' do
+        pod 'RxDataSources', '1.0.3'
+    end
+    
+    target 'pwnedTests' do
+        pod 'RxTest', '3.4'
+    end
+end
