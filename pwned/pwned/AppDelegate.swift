@@ -11,11 +11,17 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    let navigator = Navigator()
+    
+    let testing = NSClassFromString("XCTest") != nil
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         BuddyBuildSDK.setup()
         
-        // Override point for customization after application launch.
+        if !testing {
+            let feedNavigation = window!.rootViewController! as! UITabBarController
+            navigator.show(segue: .listBreachesSearch(), sender: feedNavigation)
+        }
         return true
     }
 }

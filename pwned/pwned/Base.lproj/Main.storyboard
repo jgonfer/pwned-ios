@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,7 +30,7 @@
         <!--Search-->
         <scene sceneID="qW3-kG-f51">
             <objects>
-                <viewController id="bQh-08-Kgw" customClass="SearchViewController" customModule="pwned" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="bQh-08-Kgw" customClass="SearchViewController" customModule="pwned" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="m1m-G2-Vdq"/>
                         <viewControllerLayoutGuide type="bottom" id="DDF-I9-IaE"/>
@@ -39,13 +38,47 @@
                     <view key="view" contentMode="scaleToFill" id="b4o-cJ-v58">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vzI-xR-Ka1">
+                                <rect key="frame" x="0.0" y="132" width="375" height="535"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="bdx-pv-RJk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4sR-q9-XDK">
+                                <rect key="frame" x="0.0" y="44" width="375" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="IrV-JX-dyg"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vzI-xR-Ka1" secondAttribute="trailing" id="DqX-6X-XnF"/>
+                            <constraint firstItem="bdx-pv-RJk" firstAttribute="top" secondItem="b4o-cJ-v58" secondAttribute="top" id="RpS-pD-eBr"/>
+                            <constraint firstAttribute="trailing" secondItem="4sR-q9-XDK" secondAttribute="trailing" id="aWd-mN-6jH"/>
+                            <constraint firstItem="4sR-q9-XDK" firstAttribute="leading" secondItem="b4o-cJ-v58" secondAttribute="leading" id="e18-vW-6eJ"/>
+                            <constraint firstItem="vzI-xR-Ka1" firstAttribute="leading" secondItem="b4o-cJ-v58" secondAttribute="leading" id="edz-tk-P1H"/>
+                            <constraint firstItem="vzI-xR-Ka1" firstAttribute="top" secondItem="4sR-q9-XDK" secondAttribute="bottom" id="i5A-Ug-qYu"/>
+                            <constraint firstAttribute="trailing" secondItem="bdx-pv-RJk" secondAttribute="trailing" id="jYD-6r-wXn"/>
+                            <constraint firstAttribute="bottom" secondItem="vzI-xR-Ka1" secondAttribute="bottom" id="m4s-wZ-NGC"/>
+                            <constraint firstItem="4sR-q9-XDK" firstAttribute="top" secondItem="bdx-pv-RJk" secondAttribute="bottom" id="mXT-s7-c0P"/>
+                            <constraint firstItem="bdx-pv-RJk" firstAttribute="leading" secondItem="b4o-cJ-v58" secondAttribute="leading" id="vHT-jh-5HQ"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Search" id="dec-eX-tY3"/>
+                    <connections>
+                        <outlet property="optionsHeightConstant" destination="IrV-JX-dyg" id="rXG-GV-s1x"/>
+                        <outlet property="searchBar" destination="bdx-pv-RJk" id="HYU-PM-Mrc"/>
+                        <outlet property="tableView" destination="vzI-xR-Ka1" id="12x-Ur-KbW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKC-2F-feP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="598" y="-306"/>
+            <point key="canvasLocation" x="597.60000000000002" y="-306.29685157421289"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4s9-ei-7mh">
